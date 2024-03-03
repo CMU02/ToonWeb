@@ -18,6 +18,7 @@ export const fetchDataApi = async(link) => {
         throw error;
     }
 };
+
 const Container = styled.div`
 `;
 const Title = styled.div`
@@ -35,8 +36,8 @@ const Title = styled.div`
 const Wrapper = styled.div`
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 25px;
-    max-width: 90%;
+    gap: 35px;
+    max-width: 80%;
     width: 100%;
     margin: 45px auto;
 `
@@ -45,7 +46,7 @@ const Line = styled.hr`
 `
 
 export default function Toons() {
-    const [jsonData, setJsonData] = useState(null);
+    const [jsonData, setJsonData] = useState([]);
     useEffect(() => {
         async function fetchData() {
             const data = await fetchDataApi('today')
@@ -62,7 +63,7 @@ export default function Toons() {
             <Line />
             <Wrapper>
                 {
-                    jsonData&& jsonData.map((toon) => (
+                    jsonData && jsonData.map((toon) => (
                         <Toon 
                         key={toon.id}
                         id={toon.id}

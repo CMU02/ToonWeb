@@ -1,13 +1,18 @@
+import { Children } from "react"
 import { useEffect, useState } from "react"
-import { createBrowserRouter, RouterProvider } from "react-router-dom"
-import { styled } from "styled-components"
+import { createBrowserRouter, Route, RouterProvider } from "react-router-dom"
 import LoadingScreen from "./components/Loading-screen"
 import Toons from "./router/Toons"
+import ToonInfo from "./router/ToonInfo"
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Toons />
+    element: <Toons />,
+  },
+  {
+    path: `/:id`,
+    element: <ToonInfo />
   }
 ])
 

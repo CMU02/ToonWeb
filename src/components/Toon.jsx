@@ -1,6 +1,5 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Route } from "react-router-dom";
 import { styled } from "styled-components";
-import { API_URL } from "../router/Toons";
 
 const Wrapper = styled.div`
     display: grid;
@@ -26,12 +25,11 @@ const Image = styled.img`
         opacity: 1;
     }
 `
-
 export default function Toon({id, title, thumb}) {
     return (
         <Wrapper key={id}>
-            <Image src={thumb} alt={title}/>
-            <Link to={`${API_URL}/${id}`}>{title}</Link>
+            <Link to={`/${id}`}><Image src={thumb} alt={title}/></Link>
+            <Link to={`/${id}`}>{title}</Link>
         </Wrapper>
     )
 }
